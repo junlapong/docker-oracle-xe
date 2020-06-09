@@ -40,6 +40,21 @@ $ docker run --name OracleXE \
          oracle/database:11.2.0.2-xe
 ```
 
+```
+$ docker exec -it OracleXE /bin/bash
+
+bash-4.2# su -p oracle -c "sqlplus / as sysdba"
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE
+---------
+09-JUN-20
+```
+
 Or run with Docker Compose
 
 Example `docker-compose.yml`
@@ -77,7 +92,7 @@ Connected to localhost.
 Escape character is '^]'.
 ```
 
-Create a new Oracle connection with [DBeaver](https://dbeaver.io/) and fill the following information.
+Create a new Oracle connection with [DBeaver CE](https://dbeaver.io/) and fill the following information.
 
 | Name | Value |
 |-----:|-------|
@@ -96,5 +111,7 @@ SELECT SYSDATE FROM DUAL;
 
 ## References
 
-- https://github.com/oracle/docker-images
+- [github.com/oracle/docker-images](https://github.com/oracle/docker-images)
 - [Set up Oracle XE with Docker container and connect with DBeaver](https://www.codesanook.com/setup-oracle-xe-database-on-docker-container-and-connect-with-dbeaver)
+- [sqlplus / as sysdba doesn't work in Oracle 18 xe #1213](https://github.com/oracle/docker-images/issues/1213#issuecomment-480313073)
+- [Connecting to Oracle Database XE](https://docs.oracle.com/en/database/oracle/oracle-database/18/xeinl/connecting-oracle-database-xe.html)
