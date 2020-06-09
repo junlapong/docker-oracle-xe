@@ -68,7 +68,7 @@ $ docker-compose logs -f
 
 ### Test Connection
 
-Check listening post `1521`
+Check listening port `1521`
 
 ```
 $ telnet localhost 1521
