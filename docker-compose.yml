@@ -1,14 +1,18 @@
-version: '3.3'
+version: '3'
 
 services:
-    OracleXE:
-        container_name: OracleXE
-        image: 'oracle/database:11.2.0.2-xe'
-        shm_size: '1gb'
-        ports:
-            - '1521:1521'
-            - '8081:8080'
-        environment:
-            - ORACLE_PWD=12345
-        volumes:
-            - ./data:/u01/app/oracle/oradata
+  oracle-xe:
+    container_name: oracle-xe
+    image: 'oracle-xe:21.3.0'
+    shm_size: '1gb'
+    environment:
+      TZ: Asia/Bangkok
+      ORACLE_PWD: Pa55w0rd
+      ORACLE_CHARACTERSET: TH8TISASCII
+    ports:
+      - '1521:1521'
+      - '5500:5500'
+    volumes:
+      - oradata:/opt/oracle/oradata
+volumes:
+  oradata:
