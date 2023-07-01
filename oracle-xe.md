@@ -9,12 +9,11 @@ git clone https://github.com/oracle/docker-images
 __Step 2__
 
 ```sh
-### Oracle v18.4.0 ###
+# Oracle v18.4.0 ###
 cd docker-images/OracleDatabase/SingleInstance/dockerfiles/18.4.0
 
-## OR
-
-### Oracle v21.3.0 ###
+# OR
+# Oracle v21.3.0 ###
 cd docker-images/OracleDatabase/SingleInstance/dockerfiles/21.3.0
 ```
 
@@ -45,6 +44,30 @@ docker exec -it OracleXE sqlplus system/Pa55w0rd@xe
 
 ```sh
 docker-compose -f docker-compose.yml up
+
+# OR
+docker-compose exec oracle-xe bash -c "sqlplus / as sysdba"
+
+# OR
+docker-compose exec oracle-xe sqlplus system/Pa55w0rd@xe
+```
+
+```
+SQL*Plus: Release 21.0.0.0.0 - Production on Sat Jul 1 09:53:45 2023
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+Version 21.3.0.0.0
+
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE
+---------
+01-JUL-23
 ```
 
 ### Notes
